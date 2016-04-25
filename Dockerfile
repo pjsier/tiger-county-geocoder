@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM ubuntu:14.04
 
 MAINTAINER Patrick Sier <pjsier@gmail.com>
 
@@ -40,4 +40,4 @@ RUN \
   chmod +x build/rebuild_cluster && \
   build/rebuild_cluster data/geocode.db
 
-ENTRYPOINT ["ruby"]
+ENTRYPOINT ["ruby", "script/geocode_script.rb"]
