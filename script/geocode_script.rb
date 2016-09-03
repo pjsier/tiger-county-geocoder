@@ -18,9 +18,9 @@ def geocode_csv(csv_contents, addr_idx, headers)
   # Iterate through ignoring the header row
   to_geocode.each do |i|
     # Geocode, and push the results to a new row, added to the new csv
-    geocoded = street2coordinates([i[addr_idx]])
-    lat = geocoded[i[addr_idx]][:latitude]
-    lon = geocoded[i[addr_idx]][:longitude]
+    geocoded = geocode_us_address(i[addr_idx])
+    lat = geocoded[:latitude]
+    lon = geocoded[:longitude]
     geo_row = i
     geo_row.push(lat, lon)
     geocoded_csv.push(geo_row)
@@ -44,7 +44,7 @@ end
 if ARGV.length == 0
   puts "No arguments supplied. Exiting..."
 else
-  csv_name = "script/" + ARGV[0]
+  csv_name = "script/data/" + ARGV[0]
   csv_contents = CSV.read(csv_name)
 
   # Check if more than one argument, if so, second argument becomes address column

@@ -40,4 +40,6 @@ RUN \
   chmod +x build/rebuild_cluster && \
   build/rebuild_cluster data/geocode.db
 
-ENTRYPOINT ["ruby", "script/geocode_script.rb"]
+ADD script/ /script
+
+ENTRYPOINT ["ruby", "/script/geocode_script.rb"]

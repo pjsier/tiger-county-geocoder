@@ -13,10 +13,14 @@ Current example for Cook County, IL (FIPS 17031)
 ## Geocode CSV
 For CSVs with a header row, run the container with first first argument being the
 filename, and the second (optional) argument being the name of the column containing
-address strings. **Note:** The address column should contain the full address (not
+address strings.
+
+**Note:** The address column should contain the full address (not
 split out into street, city, state).
 
-**To Run:** `docker run -v /Users/example/tiger-county-geocoder:/script tiger-geo test_addr.csv address`
+To run from within the directory containing the CSV you want to geocode:
+
+`docker run -v $(pwd):/script/data tiger-geo test_addr.csv address`
 
 If no address column name is provided, the script will assume there is no header
 and that the first column contains addresses. File will be outputted to the same
