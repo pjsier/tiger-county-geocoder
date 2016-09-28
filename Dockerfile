@@ -21,9 +21,9 @@ RUN \
 RUN \
   mkdir /tiger && \
   cd /tiger && \
-  wget ftp://ftp2.census.gov/geo/tiger/TIGER2015/EDGES/tl_2015_${FIPS}_edges.zip && \
-  wget ftp://ftp2.census.gov/geo/tiger/TIGER2015/FEATNAMES/tl_2015_${FIPS}_featnames.zip && \
-  wget ftp://ftp2.census.gov/geo/tiger/TIGER2015/ADDR/tl_2015_${FIPS}_addr.zip
+  wget http://www2.census.gov/geo/tiger/TIGER2015/EDGES/tl_2015_${FIPS}_edges.zip && \
+  wget http://www2.census.gov/geo/tiger/TIGER2015/FEATNAMES/tl_2015_${FIPS}_featnames.zip && \
+  wget http://www2.census.gov/geo/tiger/TIGER2015/ADDR/tl_2015_${FIPS}_addr.zip
 
 # Build TIGER data within geocoder
 RUN \
